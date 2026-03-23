@@ -1,0 +1,18 @@
+class Solution(object):
+    def generate(self, curr_str, ans, open, close, n):
+        if open + close == 2 * n and open == close:
+            ans.append(curr_str)
+            return
+        if open < n:
+            self.generate(curr_str + "(", ans, open + 1, close, n)
+        if close < open:
+            self.generate(curr_str + ")", ans, open, close + 1, n)
+
+    def generateParenthesis(self, n):
+        curr_str = ""
+        ans = []
+        self.generate(curr_str, ans, 0, 0, n)
+        return ans
+
+sol = Solution()
+print(sol.generateParenthesis(3))
