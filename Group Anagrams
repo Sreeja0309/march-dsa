@@ -1,0 +1,10 @@
+class Solution(object):
+    def groupAnagrams(self, strs):
+        d= defaultdict(list)
+        for word in strs:  # word = "eat"
+            sort_word = "".join(sorted(word))
+            d[sort_word].append(word)
+        ans=[]
+        for value in d.values():
+            ans.append(value)
+        return ans
